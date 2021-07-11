@@ -1,5 +1,12 @@
 package de.cericx.coreapi;
 
-public class CoreApi {
+import org.bukkit.plugin.java.JavaPlugin;
 
+public class CoreApi extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        
+        super.onEnable();
+    }
 }
