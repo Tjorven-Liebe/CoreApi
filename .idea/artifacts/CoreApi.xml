@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="CoreApi">
+    <output-path>$PROJECT_DIR$/../Desktop/Development/Minecraft/Spigot Server/1.8/plugins</output-path>
+    <root id="archive" name="CoreApi.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="CoreApi" />
+    </root>
+  </artifact>
+</component>
