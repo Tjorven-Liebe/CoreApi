@@ -10,22 +10,22 @@ import org.bukkit.Bukkit;
 
 public class Logger {
 
-    String msg;
-
-    public Logger(String text) {
-
+    public static void info(String... text) {
+        for(String message : text) {
+            Bukkit.getConsoleSender().sendMessage("§e[§9INFO§e] §7" + message);
+        }
     }
 
-    public void info() {
-        Bukkit.getConsoleSender().sendMessage("§e[§9INFO§e] §7" + msg);
+    public static void error(String... text) {
+        for(String message : text) {
+            Bukkit.getConsoleSender().sendMessage("§e[§cERROR§e] §7" + message);
+        }
     }
 
-    public void error() {
-        Bukkit.getConsoleSender().sendMessage("§e[§cERROR§e] §7" + msg);
-    }
-
-    public void warning() {
-        Bukkit.getConsoleSender().sendMessage("§e[§eWARNING§e] §7" + msg);
-    }
+    public static void warn(String... text) {
+            for(String message : text) {
+                Bukkit.getConsoleSender().sendMessage("§e[§eWARNING§e] §7" + message);
+            }
+        }
 
 }
