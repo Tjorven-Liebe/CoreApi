@@ -1,4 +1,4 @@
-package de.cericx.coreapi.messagebuilder;
+package de.cericx.coreapi.util.messagebuilder;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -16,13 +16,11 @@ import java.io.IOException;
 
 public class MessageConfigBuilder {
 
-        String msgname = "";
-        String text = "";
-        FileConfiguration cfg = new Message().cfg;
-        File file = new Message().file;
 
-        public MessageConfigBuilder(String messagename) {
-            msgname = messagename;
+        public final static FileConfiguration cfg = new Message().cfg;
+        public final static File file = new Message().file;
+
+        public MessageConfigBuilder() {
 
 
             cfg.options().header("#Change Text here to set Messages\n#Have fun ;)");
@@ -32,14 +30,10 @@ public class MessageConfigBuilder {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
         }
 
-        public MessageConfigBuilder() {}
-
-        public void setText(String text) {
+        public static void setText(String msgname, String text) {
             if(cfg.getString(msgname) == null) {
-                this.text = text;
                 cfg.set(msgname, text);
 
                 try {
@@ -51,14 +45,15 @@ public class MessageConfigBuilder {
             }
         }
 
-        public String getText() {
+        public static String getText(String msgname, String text) {
             if(cfg.getString(msgname)==null) {
-                return "set a text in the config first.";
-            }else
+                setText(msgname, text);
+                return cfg.getString(msgname).replace("&", "§");
+            } else
                 return cfg.getString(msgname).replace("&", "§");
         }
 
-        public void create() {
+        public static void create() {
 
             if(!file.exists()) {
                 try {

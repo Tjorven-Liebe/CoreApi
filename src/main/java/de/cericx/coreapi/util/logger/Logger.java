@@ -1,4 +1,4 @@
-package de.cericx.coreapi.logger;
+package de.cericx.coreapi.util.logger;
 
 import org.bukkit.Bukkit;
 
@@ -12,20 +12,20 @@ public class Logger {
 
     public static void info(String... text) {
         for(String message : text) {
-            Bukkit.getConsoleSender().sendMessage("§e[§9INFO§e] §7" + message);
+            Bukkit.getConsoleSender().sendMessage("§8[§9INFO§8] §7" + message);
         }
     }
 
     public static void error(String... text) {
         for(String message : text) {
-            Bukkit.getConsoleSender().sendMessage("§e[§cERROR§e] §7" + message);
+            Bukkit.getConsoleSender().sendMessage("§8[§eWARN§8] §e" + message);
         }
     }
 
     public static void warn(String... text) {
-            for(String message : text) {
-                Bukkit.getConsoleSender().sendMessage("§e[§eWARNING§e] §7" + message);
-            }
+        for(String message : text) {
+            Bukkit.getConsoleSender().sendMessage("§8[§cERROR§8] §c" + message);
         }
+    }
 
 }
