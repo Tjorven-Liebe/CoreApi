@@ -16,9 +16,9 @@ import java.util.regex.Pattern;
 
 public class Translate
 {
-    public String translate(String text, String langFrom, String langTo)
+    public String translate(String text, String langTo)
     {
-        String html = getHTML(text, langFrom, langTo);
+        String html = getHTML(text,  langTo);
         String translated = parseHTML(html);
 
         if(text.equalsIgnoreCase(translated))
@@ -26,15 +26,15 @@ public class Translate
 
         return translated;
     }
-    private URL createURL(String text, String langFrom, String langTo)
+    private URL createURL(String text,  String langTo)
     {
         try
         {
             String encodedText = URLEncoder.encode(text.trim(), "UTF-8");
 
             String urlString = String.format(
-                    "https://translate.google.com/m?hl=en&sl=%s&tl=%s&ie=UTF-8&prev=_m&q=%s",
-                    langFrom, langTo, encodedText);
+                    "https://translate.google.com/m?hl=" + langTo + "&sl=%s&tl=%s&ie=UTF-8&prev=_m&q=%s",
+                     encodedText);
 
             return new URL(urlString);
 
@@ -44,9 +44,9 @@ public class Translate
         }
     }
 
-    private String getHTML(String text, String langFrom, String langTo)
+    private String getHTML(String text, String langTo)
     {
-        URL url = createURL(text, langFrom, langTo);
+        URL url = createURL(text,  langTo);
 
         try
         {

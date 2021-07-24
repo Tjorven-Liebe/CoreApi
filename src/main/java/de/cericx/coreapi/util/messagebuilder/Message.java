@@ -20,13 +20,13 @@ public class Message {
         return MessageConfigBuilder.getText(msgname, text);
     }
 
-    public static String getTranslated(String msgname, String text, String fromLanguage, String toLanguage) {return new Translate().translate(MessageConfigBuilder.getText(msgname, text), fromLanguage, toLanguage); }
+    public static String getTranslated(String msgname, String text, String fromLanguage, String toLanguage) {return new Translate().translate(MessageConfigBuilder.getText(msgname, text), toLanguage); }
 
     public static String getCentered(String msgname, String text) {
         return getCenteredMessage(getCenteredMessage(MessageConfigBuilder.getText(msgname, text)));
     }
 
-    public static String getTranslatedCentered(String msgname, String text, String fromLanguage, String toLanguage) {return getCenteredMessage(new Translate().translate(MessageConfigBuilder.getText(msgname, text), fromLanguage, toLanguage)); }
+    public static String getTranslatedCentered(String msgname, String text, String fromLanguage, String toLanguage) {return getCenteredMessage(new Translate().translate(MessageConfigBuilder.getText(msgname, text),  toLanguage)); }
 
     public File file = new File(Constants.foldername + "/messages/message.yml");
     public FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
