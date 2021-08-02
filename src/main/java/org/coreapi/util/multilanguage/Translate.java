@@ -1,5 +1,5 @@
 
-package de.cericx.coreapi.util.multilanguage;
+package org.coreapi.util.multilanguage;
 
 import org.apache.commons.lang.StringEscapeUtils;
 

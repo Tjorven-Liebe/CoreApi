@@ -1,4 +1,4 @@
-package de.cericx.coreapi.config;
+package org.coreapi.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

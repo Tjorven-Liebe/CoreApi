@@ -1,6 +1,6 @@
-package de.cericx.coreapi.util.locations;
+package org.coreapi.util.locations;
 
-import de.cericx.coreapi.util.Constants;
+import org.coreapi.util.Constants;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

@@ -1,4 +1,4 @@
-package de.cericx.coreapi.util.locations;
+package org.coreapi.util.locations;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

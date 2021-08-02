@@ -1,4 +1,4 @@
-package de.cericx.coreapi.util.messagebuilder;
+package org.coreapi.util.messagebuilder;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;

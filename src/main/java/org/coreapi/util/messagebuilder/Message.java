@@ -1,7 +1,7 @@
-package de.cericx.coreapi.util.messagebuilder;
+package org.coreapi.util.messagebuilder;
 
-import de.cericx.coreapi.util.Constants;
-import de.cericx.coreapi.util.multilanguage.Translate;
+import org.coreapi.util.Constants;
+import org.coreapi.util.multilanguage.Translate;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

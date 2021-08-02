@@ -1,4 +1,4 @@
-package de.cericx.coreapi.util.logger;
+package org.coreapi.util.logger;
 
 import org.bukkit.Bukkit;
 

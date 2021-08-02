@@ -1,4 +1,4 @@
-package de.cericx.coreapi.util.messagebuilder;
+package org.coreapi.util.messagebuilder;
 
 public enum DefaultFontInfo {
 

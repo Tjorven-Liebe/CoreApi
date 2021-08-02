@@ -1,6 +1,6 @@
-package de.cericx.coreapi.util.logger;
+package org.coreapi.util.logger;
 
-import de.cericx.coreapi.util.messagebuilder.Message;
+import org.coreapi.util.messagebuilder.Message;
 
 public class Prefix {
 

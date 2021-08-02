@@ -1,4 +1,4 @@
-package de.cericx.coreapi.util;
+package org.coreapi.util;
 
 public class Constants {
 
