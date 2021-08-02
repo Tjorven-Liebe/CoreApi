@@ -1,5 +1,6 @@
 package org.coreapi.database;
 
+import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
@@ -18,5 +19,7 @@ public interface Database {
     List<Object> getResultAsList(String database, String key);
 
     List<Object> getResultAsList(String database, String key, String where, String is);
+
+    Connection getConnection();
 
 }

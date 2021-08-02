@@ -49,9 +49,9 @@ public class SQLite implements Database {
                     case INTEGER:
                         s = " INT";
                     case VARCHAR:
-                        s = " VARCHAR(10000)";
+                        s = " TEXT";
                     default:
-                        s = " VARCHAR(10000)";
+                        s = " TEXT";
                 }
 
                 stringBuilder.append(key + s);
@@ -124,5 +124,10 @@ public class SQLite implements Database {
             }
             return list;
         }return null;
+    }
+
+    @Override
+    public Connection getConnection() {
+        return connection;
     }
 }
