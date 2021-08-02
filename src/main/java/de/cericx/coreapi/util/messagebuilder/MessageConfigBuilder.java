@@ -1,5 +1,6 @@
 package de.cericx.coreapi.util.messagebuilder;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -23,7 +24,7 @@ public class MessageConfigBuilder {
         public MessageConfigBuilder() {
 
 
-            cfg.options().header("#Change Text here to set Messages\n#Have fun ;)");
+            cfg.options().header("Change Text here to set Messages\nae = ä\noe = ö\nue = ü\nHave fun ;)");
             try {
                 cfg.save(file);
             } catch (IOException e) {
@@ -45,12 +46,42 @@ public class MessageConfigBuilder {
             }
         }
 
+        public static String getTextWithArgs(String msgname, String text, String[] replacements, String[] toReplacements) {
+            if(cfg.getString(msgname)==null) {
+                setText(msgname, text);
+                String toReplace = cfg.getString(msgname);
+                String string = "";
+
+                    for(String s : replacements) {
+                        for(String ss : toReplacements) {
+                            string = toReplace.replace(s, ss);
+
+                        }
+                    }
+                System.out.println(string);
+                return ChatColor.translateAlternateColorCodes('&', string);
+            } else {
+                String toReplace = cfg.getString(msgname);
+                String string = "";
+
+                for(String s : replacements) {
+                    for(String ss : toReplacements) {
+                        string = toReplace.replaceAll(s, ss);
+
+                    }
+                }
+
+                System.out.println(string);
+                return ChatColor.translateAlternateColorCodes('&', string);
+            }
+        }
+
         public static String getText(String msgname, String text) {
             if(cfg.getString(msgname)==null) {
                 setText(msgname, text);
-                return cfg.getString(msgname).replace("&", "§");
+                return ChatColor.translateAlternateColorCodes('&', cfg.getString(msgname));
             } else
-                return cfg.getString(msgname).replace("&", "§");
+                return ChatColor.translateAlternateColorCodes('&', cfg.getString(msgname));
         }
 
         public static void create() {

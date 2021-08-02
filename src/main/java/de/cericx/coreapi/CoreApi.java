@@ -2,7 +2,7 @@ package de.cericx.coreapi;
 
 import de.cericx.coreapi.debug.Try;
 import de.cericx.coreapi.util.logger.Logger;
-import de.cericx.coreapi.util.messagebuilder.Message;
+import de.cericx.coreapi.util.messagebuilder.MessageConfigBuilder;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CoreApi extends JavaPlugin {
@@ -12,7 +12,7 @@ public class CoreApi extends JavaPlugin {
 
         Logger.info("CoreApi by Cericx_ and RudiBott §estarted","Version: 1.0","Since 11.07.2021","§eThank you for Using");
 
-        Logger.warn(Message.getTranslated("translated.startupwarning", "Dieses Plugin ist echt nicht stark programmiert", "de", "fr"));
+        new MessageConfigBuilder();
 
         getCommand("try").setExecutor(new Try());
     }
