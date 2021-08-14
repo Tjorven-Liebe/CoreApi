@@ -9,7 +9,9 @@ public class CoreApi extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        Logger.info("CoreApi by Cericx_ and RudiBott §estarted","Version: 1.0","Since 11.07.2021","§eThank you for Using");
+        Logger.info("CoreApi by Cericx_ and RudiBott §estarted","Version: 1.0","Since 11.07.2021","§eThank you for Using", "powered by Terminal-Hosting", " "
+        + "Support us while using this Link: §9§nhttps://terminalhosting.de/clientarea/aff.php?aff=2");
+
 
         new MessageConfigBuilder();
 

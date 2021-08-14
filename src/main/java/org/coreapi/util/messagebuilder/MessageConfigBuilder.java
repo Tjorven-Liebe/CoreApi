@@ -46,36 +46,6 @@ public class MessageConfigBuilder {
             }
         }
 
-        public static String getTextWithArgs(String msgname, String text, String[] replacements, String[] toReplacements) {
-            if(cfg.getString(msgname)==null) {
-                setText(msgname, text);
-                String toReplace = cfg.getString(msgname);
-                String string = "";
-
-                    for(String s : replacements) {
-                        for(String ss : toReplacements) {
-                            string = toReplace.replace(s, ss);
-
-                        }
-                    }
-                System.out.println(string);
-                return ChatColor.translateAlternateColorCodes('&', string);
-            } else {
-                String toReplace = cfg.getString(msgname);
-                String string = "";
-
-                for(String s : replacements) {
-                    for(String ss : toReplacements) {
-                        string = toReplace.replaceAll(s, ss);
-
-                    }
-                }
-
-                System.out.println(string);
-                return ChatColor.translateAlternateColorCodes('&', string);
-            }
-        }
-
         public static String getText(String msgname, String text) {
             if(cfg.getString(msgname)==null) {
                 setText(msgname, text);
