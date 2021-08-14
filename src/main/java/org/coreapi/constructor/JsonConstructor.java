@@ -43,11 +43,13 @@ public class JsonConstructor {
                         FileWriter fileWriter = new FileWriter(file);
                         fileWriter.write(GSON.toJson(jsonObject));
                         fileWriter.close();
+                        return file;
                 }catch (IOException e) {
 
                         e.printStackTrace();
 
                 }
+                return file;
 
         }
 
