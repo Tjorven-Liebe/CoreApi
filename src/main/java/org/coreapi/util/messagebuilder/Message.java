@@ -14,28 +14,29 @@ public class Message {
     String text = "";
 
 
-
-    public static String get(String msgname, String text, String[] replacement, String[] toReplacement) {
-        return MessageConfigBuilder.getTextWithArgs(msgname, text, replacement, toReplacement);
-    }
     public static String get(String msgname, String text) {
         return MessageConfigBuilder.getText(msgname, text);
     }
 
-    public static String getTranslated(String msgname, String text, String[] replacement, String[] toReplacement, String fromLanguage, String toLanguage) {return new Translate().translate(MessageConfigBuilder.getTextWithArgs(msgname, text, replacement, toReplacement), fromLanguage, toLanguage); }
-    public static String getTranslated(String msgname, String text, String fromLanguage, String toLanguage) {return new Translate().translate(MessageConfigBuilder.getText(msgname, text), fromLanguage, toLanguage); }
+    public static String getTranslated(String msgname, String text, String fromLanguage, String toLanguage) {
+        return new Translate().translate(MessageConfigBuilder.getText(msgname, text), fromLanguage, toLanguage);
+    }
+/*
+    public static String getCentered(String msgname, String text, String[] replacement, String[] toReplacement) {
+        return getCenteredMessage(getCenteredMessage(MessageConfigBuilder.getTextWithArgs(msgname, text, replacement, toReplacement)));
+    }
 
-    public static String getCentered(String msgname, String text, String[] replacement, String[] toReplacement) {return getCenteredMessage(getCenteredMessage(MessageConfigBuilder.getTextWithArgs(msgname, text, replacement, toReplacement)));}
-
-    public static String getTranslatedCenteredWithArgs(String msgname, String text, String[] replacement, String[] toReplacement, String fromLanguage, String toLanguage) {return getCenteredMessage(new Translate().translate(MessageConfigBuilder.getTextWithArgs(msgname, text, replacement, toReplacement), fromLanguage,  toLanguage)); }
-
+    public static String getTranslatedCenteredWithArgs(String msgname, String text, String[] replacement, String[] toReplacement, String fromLanguage, String toLanguage) {
+        return getCenteredMessage(new Translate().translate(MessageConfigBuilder.getTextWithArgs(msgname, text, replacement, toReplacement), fromLanguage, toLanguage));
+    }
+*/
     public File file = new File(Constants.foldername + "/messages/message.yml");
     public FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
     private final static int CENTER_PX = 80;
 
-    public static String getCenteredMessage(String message){
-        if(message == null || message.equals("")) return "";
+    public static String getCenteredMessage(String message) {
+        if (message == null || message.equals("")) return "";
         message = ChatColor.translateAlternateColorCodes('&', message);
 
         int messagePxSize = 0;
@@ -43,18 +44,17 @@ public class Message {
         boolean isBold = false;
 
 
-
-        for(char c : message.toCharArray()){
-            if(c == '§'){
+        for (char c : message.toCharArray()) {
+            if (c == '§') {
                 previousCode = true;
                 continue;
-            }else if(previousCode == true){
+            } else if (previousCode == true) {
                 previousCode = false;
-                if(c == 'l' || c == 'L'){
+                if (c == 'l' || c == 'L') {
                     isBold = true;
                     continue;
-                }else isBold = false;
-            }else{
+                } else isBold = false;
+            } else {
                 DefaultFontInfo dFI = DefaultFontInfo.getDefaultFontInfo(c);
                 messagePxSize += isBold ? dFI.getBoldLength() : dFI.getLength();
                 messagePxSize++;
@@ -66,7 +66,7 @@ public class Message {
         int spaceLength = DefaultFontInfo.SPACE.getLength() + 1;
         int compensated = 0;
         StringBuilder sb = new StringBuilder();
-        while(compensated < toCompensate){
+        while (compensated < toCompensate) {
             sb.append(" ");
             compensated += spaceLength;
         }
