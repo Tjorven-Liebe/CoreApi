@@ -15,7 +15,6 @@ public class CoreApi extends JavaPlugin {
 
         new MessageConfigBuilder();
 
-
     }
 
     @Override
