@@ -18,13 +18,13 @@ public class Logger {
 
     public static void error(String... text) {
         for(String message : text) {
-            Bukkit.getConsoleSender().sendMessage("§8[§eWARN§8] §e" + message);
+            Bukkit.getConsoleSender().sendMessage("§8[§eERROR§8] §e" + message);
         }
     }
 
     public static void warn(String... text) {
         for(String message : text) {
-            Bukkit.getConsoleSender().sendMessage("§8[§cERROR§8] §c" + message);
+            Bukkit.getConsoleSender().sendMessage("§8[§cWARN§8] §c" + message);
         }
     }
 

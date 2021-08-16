@@ -12,8 +12,8 @@ import java.io.IOException;
 public class LocationBuilder {
 
 
-    public final static FileConfiguration cfg = CLocation.cfg;
-    public final static File file = CLocation.file;
+    public final static FileConfiguration cfg = ConfigLocation.cfg;
+    public final static File file = ConfigLocation.file;
 
     public LocationBuilder() {
 

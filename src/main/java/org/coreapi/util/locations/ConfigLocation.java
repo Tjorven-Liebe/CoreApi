@@ -1,13 +1,13 @@
 package org.coreapi.util.locations;
 
-import org.coreapi.util.Constants;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.coreapi.util.Constants;
 
 import java.io.File;
 
-public class CLocation {
+public class ConfigLocation {
 
     public static File file = new File(Constants.foldername + "/locations/locations.yml");
     public static FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);

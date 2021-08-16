@@ -53,7 +53,6 @@ public class MySQL implements Database {
                     default:
                         s = " TEXT";
                 }
-
                 stringBuilder.append(key + s);
 
             });
