@@ -53,7 +53,7 @@ public class LocationBuilder {
         float pitch = (float) cfg.getDouble(locationname + ".pitch");
         float yaw = (float) cfg.getDouble(locationname + ".yaw");
 
-        return new Location(world, x, y, z, pitch, yaw);
+        return new Location(world, x, y, z, yaw, pitch);
     }
 
     public static Location getLocation(String locationname, Location location) {
@@ -67,7 +67,7 @@ public class LocationBuilder {
             float pitch = (float) cfg.getDouble(locationname + ".pitch");
             float yaw = (float) cfg.getDouble(locationname + ".yaw");
 
-            return new Location(world, x, y, z, pitch, yaw);
+            return new Location(world, x, y, z, yaw, pitch);
         } else {
             World world = Bukkit.getWorld(cfg.getString(locationname + ".world"));
             double x = cfg.getDouble(locationname + ".x");
@@ -76,7 +76,7 @@ public class LocationBuilder {
             float pitch = (float) cfg.getDouble(locationname + ".pitch");
             float yaw = (float) cfg.getDouble(locationname + ".yaw");
 
-            return new Location(world, x, y, z, pitch, yaw);
+            return new Location(world,x,y,z,yaw,pitch);
         }
     }
 

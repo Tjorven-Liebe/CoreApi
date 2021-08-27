@@ -4,8 +4,4 @@ authors:
   - RudiBott
   - FlorianMichael
 version: 1.0
-main: de.cericx.coreapi.CoreApi
-
-commands:
-  try:
-    description: Du bist ein schwuler Hai!
+main: org.coreapi.CoreApi
