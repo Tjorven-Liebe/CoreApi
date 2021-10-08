@@ -2,6 +2,9 @@ name: CoreApi
 authors:
   - Cericx_
   - RudiBott
-  - FlorianMichael
 version: 1.0
 main: org.coreapi.CoreApi
+
+commands:
+  test:
+    description: Test for command

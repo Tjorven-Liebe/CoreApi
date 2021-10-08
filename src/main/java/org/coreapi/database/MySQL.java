@@ -1,6 +1,6 @@
 package org.coreapi.database;
 
-import org.bukkit.Bukkit;
+import org.coreapi.api.Api;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 
 public class MySQL implements Database {
 
@@ -28,8 +27,8 @@ public class MySQL implements Database {
                         + "/" + database + "?autoReconnect=true", username, password);
                 System.out.println("MySQL-Verbindung gestartet!");
             } catch (SQLException e) {
-                Bukkit.getLogger().log(Level.WARNING, "MySQL-Connection failed!");
-                e.printStackTrace();
+                Api.getLogger().warn("MySQL-Connection failed!");
+                Api.getLogger().error(e);
             }
         }
     }
@@ -61,7 +60,7 @@ public class MySQL implements Database {
             try {
                 connection.createStatement().executeUpdate(stringBuilder.toString());
             } catch (SQLException e) {
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
         }
     }
@@ -85,7 +84,7 @@ public class MySQL implements Database {
                 connection.createStatement().executeUpdate("update " + database + " set " + key + "='" + value + "' where " + where + "='" + is + "'");
 
             }catch (SQLException e) {
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
         }
 
@@ -104,7 +103,7 @@ public class MySQL implements Database {
                 }
 
             }catch (SQLException e) {
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
         }return null;
     }
@@ -126,7 +125,7 @@ public class MySQL implements Database {
                 }
 
             }catch (SQLException e) {
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
         }return null;
     }
@@ -142,7 +141,7 @@ public class MySQL implements Database {
                     list.add(resultSet.getObject(key));
                 }
             }catch (SQLException e) {
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
             return list;
         }return null;

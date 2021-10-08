@@ -3,6 +3,7 @@ package org.coreapi.util.messagebuilder;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.coreapi.api.Api;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +30,7 @@ public class MessageConfigBuilder {
                 cfg.save(file);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
         }
 
@@ -41,7 +42,7 @@ public class MessageConfigBuilder {
                     cfg.save(file);
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    Api.getLogger().error(e);
                 }
             }
         }
@@ -62,7 +63,7 @@ public class MessageConfigBuilder {
 
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    Api.getLogger().error(e);
                 }
             }
         }

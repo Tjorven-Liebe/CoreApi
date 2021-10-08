@@ -16,14 +16,8 @@ public class Prefix {
         return pre() + Message.get("permission", "&cDir fehlt die Berechtigung!");
     }
 
-    public static String notPlayer() {
-        return pre() + Message.get("notplayer", "&cDu musst ein Spieler sein um diesen Befehl auszuführen!");
-    }
-/*
-    public static String offline(String player) {
-        return pre() + Message.get("offlineplayer", "&cDer Spieler &b%playername% &cist &noffline &r&coder &nexistiert &r&cnicht!", new String[]{"%playername%"}, new String[]{player});
-    }
+    public static String notPlayer() { return pre() + Message.get("notplayer", "&cDu musst ein Spieler sein um diesen Befehl auszuführen!"); }
 
- */
+    public static String offline(String player) { return pre() + Message.get("offlineplayer", "&cDer Spieler &b%playername% &cist &noffline &r&coder &nexistiert &r&cnicht!").replace("%playername%", player); }
 
 }

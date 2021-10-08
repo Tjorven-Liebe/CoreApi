@@ -1,6 +1,8 @@
 package org.coreapi.database;
 
 
+import org.coreapi.api.Api;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -19,7 +21,7 @@ public class SQLite implements Database {
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:" + name + ".db");
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            Api.getLogger().error(throwables);
         }
     }
 
@@ -62,7 +64,7 @@ public class SQLite implements Database {
             try {
                 connection.createStatement().executeUpdate(stringBuilder.toString());
             } catch (SQLException e) {
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
         }
     }
@@ -76,7 +78,7 @@ public class SQLite implements Database {
                 connection.createStatement().executeUpdate("update " + database + " set " + key + "='" + value + "' where " + where + "='" + is + "'");
 
             }catch (SQLException e) {
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
         }
 
@@ -104,7 +106,7 @@ public class SQLite implements Database {
                 }
 
             }catch (SQLException e) {
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
         }return null;
     }
@@ -120,7 +122,7 @@ public class SQLite implements Database {
                     list.add(resultSet.getObject(key));
                 }
             }catch (SQLException e) {
-                e.printStackTrace();
+                Api.getLogger().error(e);
             }
             return list;
         }return null;

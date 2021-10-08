@@ -2,6 +2,7 @@
 package org.coreapi.util.multilanguage;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.coreapi.api.Api;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -51,9 +52,10 @@ public class Translate
         try
         {
             URLConnection connection = setupConnection(url);
-
-            try(BufferedReader br = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream(), "UTF-8")))
+            BufferedReader br = null;
+            try {br = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream(), "UTF-8"));
+            } catch (Exception e) {Api.getLogger().error(e);};
             {
                 StringBuilder html = new StringBuilder();
 
@@ -64,8 +66,8 @@ public class Translate
                 return html.toString();
             }
 
-        }catch(IOException e)
-        {
+        }catch(IOException e) {
+            Api.getLogger().error(e);
             return null;
         }
     }

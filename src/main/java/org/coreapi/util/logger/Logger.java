@@ -1,31 +1,78 @@
 package org.coreapi.util.logger;
 
-import org.bukkit.Bukkit;
-
-/***
- * @author Cericx_
- * @version 1.0
- * @since 11.07.2021
- */
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Logger {
 
-    public static void info(String... text) {
-        for(String message : text) {
-            Bukkit.getConsoleSender().sendMessage("§8[§9INFO§8] §7" + message);
+    /***
+     * Logs Text to console
+     * Each arg will end in new line ex.
+     * info ("First line", "Second line");
+     * info ("Just output one line);
+     * @since 1.0 | 17.09.2021
+     */
+
+
+    private static String date;
+
+
+    public Logger() {
+        date = ConsoleColor.fromTag("§3") + new SimpleDateFormat("hh:mm:ss").format(Calendar.getInstance().getTime());
+    }
+
+    @Deprecated
+    public void raw(String... string) {
+        for (String toLog : string)
+            System.out.println(ConsoleColor.fromTag(date + " §7" + toLog + "§r"));
+    }
+
+
+    public void info(String... string) {
+        for (String toLog : string)
+            System.out.println(ConsoleColor.fromTag(date + " §r[§1INFO§r] §r" + toLog + "§r"));
+    }
+
+    public void warn(String... string) {
+        for (String toLog : string)
+            System.out.println(ConsoleColor.fromTag(date + " §r[§eWARN§r] §r" + toLog + "§r"));
+    }
+
+    public void error(String... string) {
+        for (String toLog : string)
+            System.out.println(ConsoleColor.fromTag(date + " §r[§4ERROR§r] §c" + toLog + "§r"));
+    }
+
+    public void error(Throwable... throwable) {
+        for (Throwable exceptionMessage : throwable) {
+            error("" + exceptionMessage.getClass().getName());
+            error("" + exceptionMessage.getMessage());
+            for (StackTraceElement element : exceptionMessage.getStackTrace()) {
+                error(element.toString());
+            }
+
         }
     }
 
-    public static void error(String... text) {
-        for(String message : text) {
-            Bukkit.getConsoleSender().sendMessage("§8[§eERROR§8] §e" + message);
+    public void error(Exception... exception) {
+        for (Exception exceptionMessage : exception) {
+            error("" + exceptionMessage.getClass().getName());
+            error("" + exceptionMessage.getMessage());
+            for (StackTraceElement element : exceptionMessage.getStackTrace()) {
+                error(element.toString());
+            }
         }
     }
 
-    public static void warn(String... text) {
-        for(String message : text) {
-            Bukkit.getConsoleSender().sendMessage("§8[§cWARN§8] §c" + message);
-        }
+    public void alert(String... string) {
+        for (String toLog : string)
+            System.out.println(ConsoleColor.fromTag(date + " §r[§3ALERT§r] §r" + toLog + "§r"));
+    }
+
+    public void emergency(String... string) {
+        for (String toLog : string)
+            System.out.println(ConsoleColor.fromTag(date + " §r[§5EMERGENCY§r] §r" + toLog + "§r"));
+
     }
 
 }
